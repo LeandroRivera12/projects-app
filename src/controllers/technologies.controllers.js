@@ -4,7 +4,7 @@ const { uploadToCloudinary } = require('../utils/cloudinary');
 
 const getAll = catchError(async(req, res) => {
     const results = await Technologies.findAll()
-    return res.json(results)
+    return res.json(results);
 });
 
 const create = catchError(async(req, res) => {
