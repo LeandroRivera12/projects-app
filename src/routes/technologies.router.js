@@ -6,6 +6,6 @@ const technologiesRouter = express.Router();
 
 technologiesRouter.route('/technologies')
     .get(getAll)
-    .post(upload.single('technologies'), create)
+    .post(upload.single('technologie'), create)
 
 module.exports = technologiesRouter;
