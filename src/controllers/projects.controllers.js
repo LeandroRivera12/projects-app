@@ -1,9 +1,11 @@
 const catchError = require('../utils/catchError');
 const Projects = require('../models/Projects');
 const Images = require('../models/Images');
+const Projects = require('../models/Projects');
+const Technologies = require('../models/Technologies');
 
 const getAll = catchError(async(req, res) => {
-    const results = await Projects.findAll({ include: [Images]});
+    const results = await Projects.findAll({ include: [Images, Technologies]});
     return res.json(results);
 });
 
@@ -14,7 +16,7 @@ const create = catchError(async(req, res) => {
 
 const getOne = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = await Projects.findByPk(id, {include: [Images]});
+    const result = await Projects.findByPk(id, {include: [Images, Technologies]});
     if(!result) return res.sendStatus(404);
     return res.json(result);
 });

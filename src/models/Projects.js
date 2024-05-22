@@ -9,10 +9,6 @@ const Projects = sequelize.define('projects', {
     description: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    technologies: {
-      type: DataTypes.STRING,
-      allowNull: false
     }
 });
 
