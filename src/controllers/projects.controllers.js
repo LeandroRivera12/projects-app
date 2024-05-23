@@ -1,7 +1,6 @@
 const catchError = require('../utils/catchError');
 const Projects = require('../models/Projects');
 const Images = require('../models/Images');
-const Projects = require('../models/Projects');
 const Technologies = require('../models/Technologies');
 
 const getAll = catchError(async(req, res) => {
