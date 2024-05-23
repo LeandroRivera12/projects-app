@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
 
 const Technologies = sequelize.define('technologies', {
-    img: {
+    url: {
         type: DataTypes.STRING,
         allowNull: false
     },

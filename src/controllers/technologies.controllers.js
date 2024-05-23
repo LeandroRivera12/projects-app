@@ -8,10 +8,10 @@ const getAll = catchError(async(req, res) => {
 });
 
 const create = catchError(async(req, res) => {
-    const { img } = await uploadToCloudinary(req.file);
+    const { url } = await uploadToCloudinary(req.file);
     const { projectId } = req.body;
-    const results = await Technologies.create({ img, projectId });
-    return res.status(201).json(results)
+    const results = await Technologies.create({ url, projectId });
+    return res.status(201).json(results);
 })
 
 const remove = catchError(async(req, res) => {
@@ -24,7 +24,7 @@ const remove = catchError(async(req, res) => {
 
 const update = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = await Projects.update(
+    const result = await Technologies.update(
         req.body,
         { where: {id}, returning: true }
     );
