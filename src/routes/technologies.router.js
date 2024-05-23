@@ -1,4 +1,4 @@
-const { getAll, create, remove } = require('../controllers/technologies.controllers');
+const { getAll, create, remove, update } = require('../controllers/technologies.controllers');
 const express = require('express');
 const upload = require('../utils/multer.js');
 
@@ -11,6 +11,7 @@ technologiesRouter.route('/technologies')
 
 technologiesRouter.route('/technologies/:id')
      .delete(remove)
+     .put(update)
 
 
 module.exports = technologiesRouter;
