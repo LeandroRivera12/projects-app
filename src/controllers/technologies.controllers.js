@@ -14,7 +14,16 @@ const create = catchError(async(req, res) => {
     return res.status(201).json(results)
 })
 
+const remove = catchError(async(req, res) => {
+    const { id } = req.params;
+    const tech = await Technologies.findByPk(id);
+    await deleteFromCloudinary(tech.url);
+    await tech.destroy();
+    return res.sendStatus(204);
+})
+
 module.exports = {
     getAll,
     create,
+    remove
 }
