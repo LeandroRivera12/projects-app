@@ -1,6 +1,6 @@
 const catchError = require('../utils/catchError');
 const Technologies = require('../models/Technologies');
-const { uploadToCloudinary } = require('../utils/cloudinary');
+const { uploadToCloudinary, deleteFromCloudinary } = require('../utils/cloudinary');
 
 const getAll = catchError(async(req, res) => {
     const results = await Technologies.findAll()
