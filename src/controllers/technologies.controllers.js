@@ -8,9 +8,9 @@ const getAll = catchError(async(req, res) => {
 });
 
 const create = catchError(async(req, res) => {
-    const { url } = await uploadToCloudinary(req.file);
+    const { img } = await uploadToCloudinary(req.file);
     const { projectId } = req.body;
-    const results = await Technologies.create({ url, projectId });
+    const results = await Technologies.create({ img, projectId });
     return res.status(201).json(results)
 })
 
