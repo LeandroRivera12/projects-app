@@ -17,7 +17,7 @@ const create = catchError(async(req, res) => {
 const remove = catchError(async(req, res) => {
     const { id } = req.params;
     const tech = await Technologies.findByPk(id);
-    await deleteFromCloudinary(tech.img);
+    await deleteFromCloudinary(tech.url);
     await tech.destroy();
     return res.sendStatus(204);
 })
