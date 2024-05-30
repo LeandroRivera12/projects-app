@@ -1,6 +1,5 @@
 const catchError = require('../utils/catchError');
 const Repositorie = require('../models/Repositorie');
-const { uploadToCloudinary } = require('../utils/cloudinary');
 
 const getAll = catchError(async(req, res) => {
     const results = await Repositorie.findAll()
@@ -8,9 +7,9 @@ const getAll = catchError(async(req, res) => {
 });
 
 const create = catchError(async(req, res) => {
-    const { url } = uploadToCloudinary(req.file);
-    const results = await Repositorie.create({ url });
-    return res.status(201).json(results);
+    const { projectId, url } = req.body;
+    const result = await Repositorie.create({projectId, url});
+    return res.status(201).json(result);
 })
 
 module.exports = {
